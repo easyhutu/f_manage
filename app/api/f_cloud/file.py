@@ -12,7 +12,7 @@ from lib.code import Msg
 from flask import g
 from settings import UPLOAD_PATH
 import os
-
+from lib.celerys.backup_file import back_up_task
 
 class CreateFile(Resource):
     folder_parse = reqparse.RequestParser()
@@ -37,8 +37,11 @@ class CreateFile(Resource):
             file_obj = DiskFile(**arg)
             filename = file_obj.file_name
             save_path = os.path.join(UPLOAD_PATH, g.user.use_folder)
-            file.save(os.path.join(save_path, filename))
+            path = os.path.join(save_path, filename)
+            file.save(path)
             file_obj.save()
+            arg['path'] = path
+            back_up_task.apply_async(args=[arg, ], countdown=60*5)
 
             return Msg.success('ok')
         else:
