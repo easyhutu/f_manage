@@ -12,9 +12,10 @@ class Backup(Base, SurrogatePK):
     id = db.Column(db.Integer, primary_key=True)
     show_name = db.Column(db.String(500))
     file_name = db.Column(db.String(500))
+    path = db.Column(db.String(600))
     file_size = db.Column(db.INTEGER)
     user_id = db.Column(db.INTEGER)
-    is_trash = db.Column(db.INTEGER)
+    is_trash = db.Column(db.INTEGER, default=0)
     is_share = db.Column(db.INTEGER)
     create_time = db.Column(db.DATETIME, default=datetime.now())
 
