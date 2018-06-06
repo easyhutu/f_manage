@@ -13,10 +13,10 @@ from settings import (PROJECT_ROOT,
 
 default_env = DEFAULT_ENV
 # 拼接绝对路径的配置文件地址
-config_path = os.path.join(PROJECT_ROOT, 'config.yaml')
+#config_path = os.path.join(PROJECT_ROOT, 'config.yaml')
 
 # 加载配置文件
-config = yaml.load(open(config_path, encoding='utf8'))[default_env]
+#config = yaml.load(open(config_path, encoding='utf8'))[default_env]
 
 
 class Config(object):
