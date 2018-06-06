@@ -17,4 +17,4 @@ def upload_file(value_json: dict):
 
             return 'ok'
         else:
-            return
+            return html.content
