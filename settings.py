@@ -28,5 +28,5 @@ CELERY_RESULT_BACKEND = env('CELERY_RESULT_BACKEND')
 # 上传文件根地址
 UPLOAD_PATH = os.path.abspath(os.path.join(PROJECT_ROOT, 'upload_file'))
 LOG_FOLDER = os.path.abspath(os.path.join(PROJECT_ROOT, 'app_log'))
-LOG_PATH = os.path.abspath(os.path.join(PROJECT_ROOT, 'cloud.log'))
+LOG_PATH = os.path.abspath(os.path.join(LOG_FOLDER, 'cloud.log'))
 LOG_LEVEL = 'info'
