@@ -28,7 +28,7 @@ def kill_uwsgi_server():
 
 def arg_parse():
     parser = argparse.ArgumentParser(description="start python flask service")
-    parser.add_argument('--pull', '-p', action='yes/no', help='is git pull')
+    parser.add_argument('--pull', '-p', type=str, help='is git pull')
     parse = parser.parse_args()
     if str(parse.pull).lower() in ['yes', 'y', 'true']:
         return True
